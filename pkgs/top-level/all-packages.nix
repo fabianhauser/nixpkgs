@@ -15273,6 +15273,8 @@ in
 
   thanos = callPackage ../servers/monitoring/thanos { };
 
+  igmpproxy = callPackage ../servers/igmpproxy { };
+
   inherit (callPackages ../servers/http/tomcat { })
     tomcat7
     tomcat8
