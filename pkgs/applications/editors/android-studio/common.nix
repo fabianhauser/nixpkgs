@@ -18,6 +18,7 @@
 , gnutar
 , gtk2, gnome_vfs, glib, GConf
 , gzip
+, util-linux
 , fontconfig
 , freetype
 , libpulseaudio
@@ -96,7 +97,6 @@ let
           gzip
 
           # Runtime stuff
-          git
           ps
         ]}" \
         --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [
@@ -173,6 +173,8 @@ let
     name = "${drvName}-fhs-env";
     multiPkgs = pkgs: [
       ncurses5
+      git
+      util-linux
 
       # Flutter can only search for certs Fedora-way.
       (runCommand "fedoracert" {}
